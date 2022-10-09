@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>FlashCards/QCards</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- HOTKEYS:
+L/R arrows: Prev/Next Card
+U/D arrows: Flip Card
+NOTE: hotkeys are disabled when any text inputs are active.
+Focus should reset to the "front" input upon clicking "Add" when using the Card Input Form.
+-->
+<div><h2>FlashCards/QCards</h2></div>
+<h5>ECards</h5>
+<div id="root"></div>
+<!-- 
+Sample JSON to copy/paste for demonstrating textArea validation 
+NOTE: don't forget the square brackets enclosing each array!
+-->
+<!-- SHOULD PASS
+[
+	{
+ 		"front": "test front 0", 
+		"back": "test back 0",
+ 		"active": false 
+	},
+ 	{ 
+		"front": "test front 1",
+ 		"back": "test back 1",
+ 		"extra": "should be ignored", "active": true 
+	}, 
+	{
+ 		"front": "test front 2",
+ 		"back": "",
+ 		"extra": "test back 2" 
+	}, 
+	{ 
+		"front": "",
+ 		"back": "",
+ 		"should be valid": "test front 3",
+ 		"but order isn't guaranteed": "test back 3" 
+	}
+]
+-->
+<!-- SHOULD FAIL
+[
+	{
+		"front":"value ",
+ 		"back":" value",
+ 		"active": true
+	},
+	{
+		"front": "",
+ 		"back": ""
+	},
+	{
+		"front": "  value",
+ 		"back": "value  ",
+ 		"duplicate":"value ",
+ 		"triplicate": " value  "
+	},
+	{
+		"front": "", 
+		"back": "value"
+	},
+	{
+		"front": "value",
+ 		"back": " ",
+ 		"extra": "value"
+	}
+]
+-->
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.production.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
